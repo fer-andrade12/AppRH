@@ -82,7 +82,12 @@
 					<th scope="col">Nome:</th>
 					<th scope="col">Data de nascimento:</th>
 					<th scope="col">E-mail:</th>
-					<th scope="col"></th>
+					<th scope="col">Cep:</th>
+					<th scope="col">Logradouro:</th>
+					<th scope="col">bairro:</th>
+					<th scope="col">complemento:</th>
+					<th scope="col">localidade:</th>
+					<th scope="col">UF:</th>
 					<th scope="col">Ação</th>
 					<th scope="col"></th>
 				</tr>
@@ -91,11 +96,19 @@
 				<tr th:each="funcionario : ${funcionarios}">
 
 					<td><a
-						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
-							th:text="${funcionario.nome}"></span></a></td>
+						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}">
+						<span th:text="${funcionario.nome}"></span></a></td>
 					<td><span th:text="${funcionario.data}"></span></td>
 					<td><span th:text="${funcionario.email}"></span></td>
-					<td><a
+					<td><span th:text="${funcionario.cep}"></span></td>
+					<td><span th:text="${funcionario.logradouro}"></span></td>
+					<td><span th:text="${funcionario.bairro}"></span></td>
+					<td><span th:text="${funcionario.complemento}"></span></td>
+					<td><span th:text="${funcionario.localidade}"></span></td>
+					<td><span th:text="${funcionario.uf}"></span></td>
+					<td>
+					
+					<a
 						th:href="${(#mvc.url('FC#deletarFuncionario').arg(0, funcionario.id)).build()}"
 						class="waves-effect waves-light btn-small"><button
 								type="button" class="btn btn-danger">Excluir</button></a></td>
@@ -107,6 +120,11 @@
 						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><button
 								type="button" class="btn btn-success">Adicionar
 								dependente</button></a></td>
+								
+					<td><a
+						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}">
+						<button
+								type="button" class="btn">Mais detalhes</button></a></td>
 
 				</tr>
 			</tbody>

@@ -52,12 +52,10 @@
 								<< Listar Vagas>> </a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/cadastrarVaga"> << Cadastrar Vaga>> </a></li>
-							<li class="nav-item"><a class="nav-link" href="/empresas">
-								<< Listar Empresas>>
-							</a></li>
-						<li class="nav-item"><a class="nav-link" href="/cadastrarEmpresa">
-								<< Cadastrar Empresa>>
-							</a></li>
+						<li class="nav-item"><a class="nav-link" href="/empresas">
+								<< Listar Empresas>> </a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/cadastrarEmpresa"> << Cadastrar Empresa>> </a></li>
 						<li class="nav-item"><a class="nav-link" href="/logout">Sair
 						</a></li>
 					</ul>
@@ -86,6 +84,32 @@
 
 
 			<br> <br>
+			<h2>Dependentes:</h2>
+
+			<br>
+
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome do dependente:</th>
+						<th scope="col">CPF:</th>
+						<th scope="col">Data de nascimento:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="dependente : ${dependentes}">
+						<td><span th:text="${dependente.nome}"></span></td>
+						<td><span th:text="${dependente.cpf}"></span></td>
+						<td><span th:text="${dependente.datanascimento}"></span></td>
+						<td><a class="waves-effect waves-light btn-small"
+							th:href="${(#mvc.url('FC#deletarDependente').arg(0, dependente.cpf)).build()}"><button
+									type="button" class="btn btn-danger">Excluir</button></a></td>
+
+
+					</tr>
+				</tbody>
+			</table>
 
 			<h2>Cadastrar dependentes</h2>
 
@@ -137,40 +161,14 @@
 
 		<br> <br>
 
-		<h2>Dependentes:</h2>
-
-		<br>
-
-		<table class="table table-hover table-responsive w-auto table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Nome do dependente:</th>
-					<th scope="col">CPF:</th>
-					<th scope="col">Data de nascimento:</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="dependente : ${dependentes}">
-					<td><span th:text="${dependente.nome}"></span></td>
-					<td><span th:text="${dependente.cpf}"></span></td>
-					<td><span th:text="${dependente.datanascimento}"></span></td>
-					<td><a class="waves-effect waves-light btn-small"
-						th:href="${(#mvc.url('FC#deletarDependente').arg(0, dependente.cpf)).build()}"><button
-								type="button" class="btn btn-danger">Excluir</button></a></td>
-
-
-				</tr>
-			</tbody>
-		</table>
-
 	</div>
 
 
 	<div style="height: 100px;"></div>
 
 	<div class="footer-copyright fixed-bottom bg-dark text-center py-3">
-		<span class="text-light align-middle">| App RH | - ©
-			2022 Copyright: Fernando Andrade</span>
+		<span class="text-light align-middle">| App RH | - © 2022
+			Copyright: Fernando Andrade</span>
 	</div>
 
 

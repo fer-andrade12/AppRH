@@ -43,12 +43,12 @@ public class EmpresaController {
 	}
 
 	// GET que lista as empresas
-		@RequestMapping("/empresas")
-		public ModelAndView listaEmpresas() {
-		ModelAndView mv = new ModelAndView("empresa/lista-empresa");
-		Iterable<Empresa> empresas = er.findAll();
-		mv.addObject("empresas", empresas);
-		return mv;
+	@RequestMapping("/empresas")
+	public ModelAndView listaEmpresas() {
+	ModelAndView mv = new ModelAndView("empresa/lista-empresa");
+	Iterable<Empresa> empresas = er.findAll();
+	mv.addObject("empresas", empresas);
+	return mv;
 	}
 		
 		
@@ -64,12 +64,12 @@ public class EmpresaController {
 		
 		
 	// GET que deleta a empresa
-		@RequestMapping("/deletarEmpresa")
-		public String deletarEmpresa(int id) {
-			Empresa empresa = er.findById(id);
-			er.delete(empresa);
-			return "redirect:/empresas";
-		}
+	@RequestMapping("/deletarEmpresa")
+	public String deletarEmpresa(int id) {
+		Empresa empresa = er.findById(id);
+		er.delete(empresa);
+		return "redirect:/empresas";
+	}
 	
 		
 	// Métodos que atualizam EMPRESA

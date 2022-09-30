@@ -17,7 +17,7 @@ import com.AppRH.AppRH.repository.DependenteRepository;
 import com.AppRH.AppRH.repository.FuncionarioRepository;
 
 @Controller
-public class FuncionarioController {
+public class FuncionarioController<AjaxBehaviorEvent> {
 
 	@Autowired
 	private FuncionarioRepository fr;
@@ -136,4 +136,7 @@ public class FuncionarioController {
 		return "redirect:/detalhes-funcionario/" + codigo;
 	
 	}
+	
+	
+	
 }

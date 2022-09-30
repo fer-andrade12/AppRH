@@ -23,6 +23,7 @@ public class Dependente {
 	
 	@ManyToOne
 	private Funcionario funcionario;
+	
 
 	public String getCpf() {
 		return cpf;

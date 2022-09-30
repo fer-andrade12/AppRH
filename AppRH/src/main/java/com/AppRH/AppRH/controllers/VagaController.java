@@ -20,7 +20,7 @@ public class VagaController {
 
 	@Autowired
 	private VagaRepository vr;
-	
+
 	@Autowired
 	private CandidatoRepository cr;
 
@@ -64,7 +64,6 @@ public class VagaController {
 		mv.addObject("candidatos", canditados);
 
 		return mv;
-
 	}
 
 	// GET que deleta a vaga
@@ -126,10 +125,7 @@ public class VagaController {
 	public String updateVaga(@Valid Vaga vaga, BindingResult result, RedirectAttributes attributes) {
 		vr.save(vaga);
 		attributes.addFlashAttribute("success", "Vaga alterada com sucesso!");
-
-		long codigoLong = vaga.getCodigo();
-		String codigo = "" + codigoLong;
-		return "redirect:/vaga/" + codigo;
+		return "redirect:/vagas";
 	}
 
 }
